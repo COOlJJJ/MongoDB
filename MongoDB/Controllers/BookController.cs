@@ -37,7 +37,7 @@ namespace MongoDB.Controllers
         }
 
         /// <summary>
-        /// 调用方法 http://localhost:14761/Book/62d8fc14fdccfc7acf7e6162
+        /// 调用方法为 http://localhost:14761/Book/62d8fc14fdccfc7acf7e6162
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
