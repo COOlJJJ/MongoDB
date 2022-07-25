@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using MongoDB.DTO;
 using MongoDB.Models;
+using MongoDB.VO;
 
 namespace MongoDB
 {
@@ -14,6 +15,9 @@ namespace MongoDB
             CreateMap<UpdateBookDto, Book>()
                 .ForMember(dest => dest.CreatedDate, opt => opt.Ignore())
                 .ReverseMap();
+
+            CreateMap<Contact, ContactViewModel>();
+            CreateMap<Group, GroupViewModel>();
         }
     }
 }

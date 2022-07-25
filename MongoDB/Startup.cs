@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using MongoDB.Models;
+using MongoDB.Models.Settings;
 using MongoDB.Services;
 using System;
 using System.Collections.Generic;
@@ -37,8 +37,15 @@ namespace MongoDB
                 Configuration.GetSection(nameof(BookStoreDatabaseSettings)));
             services.AddSingleton<IBookStoreDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<BookStoreDatabaseSettings>>().Value);
+            services.Configure<ContactDatabaseSettings>(
+                Configuration.GetSection(nameof(ContactDatabaseSettings)));
+            services.AddSingleton<IContactDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<ContactDatabaseSettings>>().Value);
+
 
             services.AddSingleton<IBookService, BookService>();
+            services.AddSingleton<IContactService, ContactService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
